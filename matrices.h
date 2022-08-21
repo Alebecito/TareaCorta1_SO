@@ -1,0 +1,16 @@
+#ifndef _MATRICES_H_
+#define _MATRICES_H_
+
+#include <stdlib.h>
+
+void print_matrix(int **matrix, int size);
+
+void print_array(int *array, int size);
+
+int *get_nth_column(int **matrix, int size, int nth_column);
+
+void *multiply_row_by_matrix(int *row, int row_size, int row_idx, int **matrixB, int **matrixC);
+
+int **generate_random_matrix(int size);
+
+#endif
