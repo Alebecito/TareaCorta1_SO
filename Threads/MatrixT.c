@@ -102,7 +102,7 @@ int main()
         return 0;
     }
 
-    // allocate memory for the matrices
+    // allocate memory for the matrices and initialize them with random values
     int **A = generate_random_matrix(matrix_size),
         **B = generate_random_matrix(matrix_size),
         **C = generate_random_matrix(matrix_size);
@@ -112,9 +112,9 @@ int main()
     // create a list of N threads for each
 
     // ==================== THREADS =================
-    // pthread_t threads[matrix_size];
+    pthread_t threads[matrix_size];
 
-    // create_threads(threads, matrix_size, A, B, C, matrix_size);
+    create_threads(threads, matrix_size, A, B, C, matrix_size);
 
     // for (size_t i = 0; i < matrix_size; i++)
     // {
@@ -122,10 +122,10 @@ int main()
     // }
 
     // ================= REGULAR ================
-    for (int i = 0; i < matrix_size; i++)
-    {
-        multiply_row_by_matrix_normal(A[i], matrix_size, i, B, C);
-    }
+    // for (int i = 0; i < matrix_size; i++)
+    // {
+    //     multiply_row_by_matrix_normal(A[i], matrix_size, i, B, C);
+    // }
 
     clock_gettime(CLOCK_MONOTONIC, &end);
 
