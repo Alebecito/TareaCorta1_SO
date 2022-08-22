@@ -43,9 +43,11 @@ void *multiply_row_by_matrix_threading(void *arguments)
         {
             result[i] += row[j] * column[j];
         }
+        free(column);
     }
     // print_array(result, row_size);
     matrixC[row_idx] = result;
+    free(arguments);
 }
 
 void multiply_row_by_matrix_normal(int *row, int row_size, int row_idx, int **matrixB, int **matrixC)
@@ -169,7 +171,15 @@ int main()
 
         // printf("diff in %f: %d\n", i, diff);
         average += diff;
-        free(A), free(B), free(C);
+        for (int z = 0; z < matrix_size; z++)
+        {
+            free(A[z]);
+            free(B[z]);
+            free(C[z]);
+        }
+        free(A);
+        free(B);
+        free(C);
     }
     write_stats(average / 100, "Average:");
     fclose(stats_file);
