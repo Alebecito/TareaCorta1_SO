@@ -2,6 +2,7 @@
 #define _MATRICES_H_
 
 #include <stdlib.h>
+#include <stdio.h>
 
 void print_matrix(int **matrix, int size);
 
@@ -15,6 +16,10 @@ int **generate_random_matrix(int size);
 
 void write_matrix(char *filename, int **matrix, int size);
 
+void write_stats(double time, char *message);
+
 void write_matrix_memseg(char *filename, int size, int (*matrix)[size]);
+
+FILE *stats_file;
 
 #endif

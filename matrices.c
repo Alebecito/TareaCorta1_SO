@@ -27,6 +27,16 @@ void write_matrix(char *filename, int **matrix, int size)
     fclose(file);
 }
 
+void write_stats(double time, char *message)
+{
+    //  stats_file = fopen("Stats.txt", "a");
+    fprintf(stats_file, "%s %f\n", message, time);
+    // printf("CHOTA\n");
+
+    // printf("WRITE: %s %f\n", message, time);
+    // fclose(stats_file);
+}
+
 void write_matrix_memseg(char *filename, int size, int (*matrix)[size])
 {
     FILE *file = fopen(filename, "w");

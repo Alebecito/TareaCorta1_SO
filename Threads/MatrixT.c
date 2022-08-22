@@ -97,6 +97,10 @@ struct timespec start, end;
 
 int main()
 {
+    stats_file = fopen("Stats.txt", "w");
+
+    srand(time(0));
+
     // receive a matrix_size and check if it is positive
     int matrix_size;
     printf("Enter the size N for the matrices: ");
@@ -107,44 +111,68 @@ int main()
         return 0;
     }
 
-    // allocate memory for the matrices and initialize them with random values
-    int **A = generate_random_matrix(matrix_size),
-        **B = generate_random_matrix(matrix_size),
-        **C = generate_random_matrix(matrix_size);
+    double average = 0;
 
-    clock_gettime(CLOCK_MONOTONIC, &start);
+    for (int i = 0; i < 100; i++)
+    {
+        // allocate memory for the matrices and initialize them with random values
+        int **A = generate_random_matrix(matrix_size),
+            **B = generate_random_matrix(matrix_size),
+            **C = generate_random_matrix(matrix_size);
 
-    // create a list of N threads for each
+        clock_gettime(CLOCK_MONOTONIC, &start);
 
-    // ==================== THREADS =================
+        // create a list of N threads for each
 
-    pthread_t threads[matrix_size];
+        // ==================== THREADS =================
 
-    create_threads(threads, matrix_size, A, B, C, matrix_size);
+        pthread_t threads[matrix_size];
 
-    // for (size_t i = 0; i < matrix_size; i++)
-    // {
-    //     pthread_join(threads[i], NULL);
-    // }
+        create_threads(threads, matrix_size, A, B, C, matrix_size);
 
-    // ================= REGULAR ================
-    // for (int i = 0; i < matrix_size; i++)
-    // {
-    //     multiply_row_by_matrix_normal(A[i], matrix_size, i, B, C);
-    // }
+        // for (size_t i = 0; i < matrix_size; i++)
+        // {
+        //     pthread_join(threads[i], NULL);
+        // }
 
-    clock_gettime(CLOCK_MONOTONIC, &end);
+        // ================= REGULAR ================
+        // for (int i = 0; i < matrix_size; i++)
+        // {
+        //     multiply_row_by_matrix_normal(A[i], matrix_size, i, B, C);
+        // }
 
-    // print the results
-    // printf("Matrix A:\n");
-    // print_matrix(A, matrix_size);
-    // printf("Matrix B:\n");
-    // print_matrix(B, matrix_size);
-    // printf("\nThe result of A * B is:\n");
-    // print_matrix(C, matrix_size);
+        clock_gettime(CLOCK_MONOTONIC, &end);
 
-    double diff = (end.tv_sec - start.tv_sec);
-    diff += (end.tv_nsec - start.tv_nsec) / 1000000000.0;
+        // print the results
+        // printf("Matrix A:\n");
+        // print_matrix(A, matrix_size);
+        // printf("Matrix B:\n");
+        // print_matrix(B, matrix_size);
+        // printf("\nThe result of A * B is:\n");
+        // print_matrix(C, matrix_size);
 
-    printf("Time: %f seconds\n", diff);
+        char filename[12];
+        sprintf(filename, "Mat_%s%d.txt", i < 10 ? "0" : "", i);
+
+
+        write_matrix(filename, C, matrix_size);
+
+        double diff = (end.tv_sec - start.tv_sec);
+        diff += (end.tv_nsec - start.tv_nsec) / 1000000000.0;
+
+        // printf("Time: %f seconds\n", diff);
+
+        char iteration[18];
+        sprintf(iteration, "Iteration_%s%d: ", i < 10 ? "0" : "", i);
+
+        write_stats(diff, iteration);
+        // fprintf(stats_file, "JUPON\n");
+        // fputs("JUPON\n", stats_file);
+
+        // printf("diff in %f: %d\n", i, diff);
+        average += diff;
+    }
+    write_stats(average / 100, "Average:");
+    fclose(stats_file);
+    return 0;
 }
