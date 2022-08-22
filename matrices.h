@@ -13,4 +13,8 @@ void *multiply_row_by_matrix(int *row, int row_size, int row_idx, int **matrixB,
 
 int **generate_random_matrix(int size);
 
+void write_matrix(char *filename, int **matrix, int size);
+
+void write_matrix_memseg(char *filename, int size, int (*matrix)[size]);
+
 #endif

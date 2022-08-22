@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Aug 20 16:57:33 2022
+# Make data base, printed on Sun Aug 21 16:08:27 2022
 
 # Variables
 
@@ -49,7 +49,7 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:48051
+JOURNAL_STREAM = 8:47820
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-zorin:/etc/xdg
 # environment
@@ -69,9 +69,9 @@ MAKELEVEL := 0
 # environment
 XDG_DATA_DIRS = /usr/share/zorin:/home/alebe/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=e252522e4d718a44b73ac1d66301396a
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=3c1d8a1ca17869a7ac20a72d6302acc2
 # environment
-MANAGERPID = 2755
+MANAGERPID = 1640
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -89,7 +89,7 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/alebe-System-Product-Name:@/tmp/.ICE-unix/2982,unix/alebe-System-Product-Name:/tmp/.ICE-unix/2982
+SESSION_MANAGER = local/alebe-System-Product-Name:@/tmp/.ICE-unix/1866,unix/alebe-System-Product-Name:/tmp/.ICE-unix/1866
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -105,7 +105,7 @@ DISABLE_WAYLAND = 1
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 6ef940ae9908426d89021032586179e6
+INVOCATION_ID = d461063376df47b0a5be744e236b9165
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/105/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
@@ -129,7 +129,7 @@ QT_QPA_PLATFORMTHEME = gtk3
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2948
+SSH_AGENT_PID = 1832
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = zorin:GNOME
 # environment
@@ -239,11 +239,11 @@ LC_ALL = C
 # environment
 DBUS_STARTER_BUS_TYPE = session
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/0654e94b_b7ea_4f2b_ba44_7f887595745f
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/00c80101_ce22_4350_b5c9_19228eb262b6
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.265
+GNOME_TERMINAL_SERVICE = :1.90
 # default
 SUFFIXES := 
 # environment
@@ -265,9 +265,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 9778
+VSCODE_PID = 3397
 # environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=e252522e4d718a44b73ac1d66301396a
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=3c1d8a1ca17869a7ac20a72d6302acc2
 # variable set hash-table stats:
 # Load=128/1024=12%, Rehash=0, Collisions=18/150=12%
 
@@ -303,6 +303,7 @@ Makefile:
 
 # Not a target:
 makefile:
+ 
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
@@ -314,7 +315,6 @@ makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
- 
 # Not a target:
 GNUmakefile:
 #  Implicit rule search has been done.
@@ -336,6 +336,6 @@ GNUmakefile:
 # strcache performance: lookups = 20 / hit rate = 15%
 # hash-table stats:
 # Load=17/8192=0%, Rehash=0, Collisions=1/20=5%
-# Finished Make data base on Sat Aug 20 16:57:33 2022
+# Finished Make data base on Sun Aug 21 16:08:27 2022
 
  

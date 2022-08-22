@@ -13,6 +13,34 @@ void print_matrix(int **matrix, int size)
     }
 }
 
+void write_matrix(char *filename, int **matrix, int size)
+{
+    FILE *file = fopen(filename, "w");
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            fprintf(file, "%d ", matrix[i][j]);
+        }
+        fprintf(file, "\n");
+    }
+    fclose(file);
+}
+
+void write_matrix_memseg(char *filename, int size, int (*matrix)[size])
+{
+    FILE *file = fopen(filename, "w");
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            fprintf(file, "%d ", matrix[i][j]);
+        }
+        fprintf(file, "\n");
+    }
+    fclose(file);
+}
+
 void print_array(int *array, int size)
 {
     for (int i = 0; i < size; i++)
@@ -56,7 +84,7 @@ void *multiply_row_by_matrix(int *row, int row_size, int row_idx, int **matrixB,
             result[i] += row[j] * column[j];
         }
     }
-    //print_array(result, row_size);
+    // print_array(result, row_size);
     matrixC[row_idx] = result;
 }
 

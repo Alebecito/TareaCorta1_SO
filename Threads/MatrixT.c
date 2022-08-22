@@ -76,6 +76,10 @@ void multiply_row_by_matrix_normal(int *row, int row_size, int row_idx, int **ma
 // create_threads(&threads, matrix_size, A, B, C, matrix_size);
 void create_threads(pthread_t *threads, int threads_number, int **matrixA, int **matrixB, int **matrixC, int matrix_size)
 {
+    // pthread_attr_t a;
+    // pthread_attr_init(&a);
+    // pthread_attr_setdetachstate(&a, PTHREAD_CREATE_DETACHED);
+
     for (int i = 0; i < threads_number; i++)
     {
         Thread_Arguments *arguments = (Thread_Arguments *)malloc(sizeof(Thread_Arguments));
@@ -85,6 +89,7 @@ void create_threads(pthread_t *threads, int threads_number, int **matrixA, int *
         arguments->matrixB = matrixB;
         arguments->matrixC = matrixC;
         pthread_create(&threads[i], NULL, multiply_row_by_matrix_threading, arguments);
+        pthread_join(threads[i], NULL);
     }
 }
 
@@ -112,6 +117,7 @@ int main()
     // create a list of N threads for each
 
     // ==================== THREADS =================
+
     pthread_t threads[matrix_size];
 
     create_threads(threads, matrix_size, A, B, C, matrix_size);
