@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Aug 21 20:49:22 2022
+# Make data base, printed on Sun Aug 21 20:55:55 2022
 
 # Variables
 
@@ -47,7 +49,7 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:47820
+JOURNAL_STREAM = 8:46048
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-zorin:/etc/xdg
 # environment
@@ -67,9 +69,9 @@ MAKELEVEL := 0
 # environment
 XDG_DATA_DIRS = /usr/share/zorin:/home/alebe/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=3c1d8a1ca17869a7ac20a72d6302acc2
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=92ca4e1a01a78032ccb359de6302effc
 # environment
-MANAGERPID = 1640
+MANAGERPID = 1642
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -87,7 +89,7 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/alebe-System-Product-Name:@/tmp/.ICE-unix/1866,unix/alebe-System-Product-Name:/tmp/.ICE-unix/1866
+SESSION_MANAGER = local/alebe-System-Product-Name:@/tmp/.ICE-unix/1868,unix/alebe-System-Product-Name:/tmp/.ICE-unix/1868
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -103,7 +105,7 @@ DISABLE_WAYLAND = 1
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = d461063376df47b0a5be744e236b9165
+INVOCATION_ID = b6202959e7d14ec8b9aa6434e7cc75dd
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/105/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
@@ -127,7 +129,7 @@ QT_QPA_PLATFORMTHEME = gtk3
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1832
+SSH_AGENT_PID = 1834
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = zorin:GNOME
 # environment
@@ -237,7 +239,7 @@ LC_ALL = C
 # environment
 DBUS_STARTER_BUS_TYPE = session
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/00c80101_ce22_4350_b5c9_19228eb262b6
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/f80e70a5_8875_42c9_9155_755156a6e543
 # automatic
 ^F = $(notdir $^)
 # environment
@@ -263,9 +265,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 282738
+VSCODE_PID = 3518
 # environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=3c1d8a1ca17869a7ac20a72d6302acc2
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=92ca4e1a01a78032ccb359de6302effc
 # variable set hash-table stats:
 # Load=128/1024=12%, Rehash=0, Collisions=18/150=12%
 
@@ -284,11 +286,9 @@ DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=3c1d8a1ca17869a7ac20a72
 # No implicit rules.
 
 # Files
- 
-make: *** No rule to make target 'all'.  Stop.
-
 
 # Not a target:
+ 
 all:
 #  Command line target.
 #  Implicit rule search has been done.
@@ -336,6 +336,6 @@ GNUmakefile:
 # strcache performance: lookups = 19 / hit rate = 15%
 # hash-table stats:
 # Load=16/8192=0%, Rehash=0, Collisions=1/19=5%
-# Finished Make data base on Sun Aug 21 20:49:22 2022
+# Finished Make data base on Sun Aug 21 20:55:55 2022
 
  

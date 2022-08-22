@@ -139,8 +139,6 @@ int main()
 
         // ============= FINIH =============
 
-        shmctl(buff, IPC_RMID, NULL); // free segment
-
         clock_gettime(CLOCK_MONOTONIC, &end);
 
         // printf("Matrix RESULT:\n");
@@ -172,6 +170,9 @@ int main()
 
         // printf("Time: %f seconds\n", diff);
         fclose(stats_file);
+        free(A), free(B), free(C);
+        shmdt(result); // free segment
+        shmctl(buff, IPC_RMID, NULL);
     }
     stats_file = fopen("Stats.txt", "a");
 

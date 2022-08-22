@@ -89,7 +89,6 @@ void create_threads(pthread_t *threads, int threads_number, int **matrixA, int *
         arguments->matrixB = matrixB;
         arguments->matrixC = matrixC;
         pthread_create(&threads[i], NULL, multiply_row_by_matrix_threading, arguments);
-        pthread_join(threads[i], NULL);
     }
 }
 
@@ -130,11 +129,6 @@ int main()
 
         create_threads(threads, matrix_size, A, B, C, matrix_size);
 
-        // for (size_t i = 0; i < matrix_size; i++)
-        // {
-        //     pthread_join(threads[i], NULL);
-        // }
-
         // ================= REGULAR ================
         // for (int i = 0; i < matrix_size; i++)
         // {
@@ -143,6 +137,10 @@ int main()
 
         clock_gettime(CLOCK_MONOTONIC, &end);
 
+        for (int x = 0; x < matrix_size; x++)
+        {
+           pthread_join(threads[x], NULL);
+        }
         // print the results
         // printf("Matrix A:\n");
         // print_matrix(A, matrix_size);
@@ -171,6 +169,7 @@ int main()
 
         // printf("diff in %f: %d\n", i, diff);
         average += diff;
+        free(A), free(B), free(C);
     }
     write_stats(average / 100, "Average:");
     fclose(stats_file);
