@@ -154,7 +154,6 @@ int main()
         char filename[12];
         sprintf(filename, "Mat_%s%d.txt", i < 10 ? "0" : "", i);
 
-
         write_matrix(filename, C, matrix_size);
 
         double diff = (end.tv_sec - start.tv_sec);
@@ -164,6 +163,7 @@ int main()
 
         char iteration[18];
         sprintf(iteration, "Iteration_%s%d: ", i < 10 ? "0" : "", i);
+        printf("%s%f seconds\n", iteration, diff);
 
         write_stats(diff, iteration);
         // fprintf(stats_file, "JUPON\n");
@@ -180,6 +180,7 @@ int main()
         free(A);
         free(B);
         free(C);
+        sleep(0.1);
     }
     write_stats(average / 100, "Average:");
     fclose(stats_file);

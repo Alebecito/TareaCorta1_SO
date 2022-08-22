@@ -93,6 +93,7 @@ void *multiply_row_by_matrix(int *row, int row_size, int row_idx, int **matrixB,
         {
             result[i] += row[j] * column[j];
         }
+        free(column);
     }
     // print_array(result, row_size);
     matrixC[row_idx] = result;
