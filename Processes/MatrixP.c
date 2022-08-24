@@ -109,6 +109,7 @@ int main()
 
     double average = 0;
 
+    // for (int i = 0; i < 100; i++)
     for (int i = 0; i < 100; i++)
     {
         stats_file = fopen("Stats.txt", "a");

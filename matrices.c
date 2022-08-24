@@ -62,11 +62,14 @@ void print_array(int *array, int size)
 
 int *get_nth_column(int **matrix, int size, int nth_column)
 {
+    // printf("nth column: ");
     int *result = (int *)malloc(sizeof(int) * size);
     for (int i = 0; i < size; i++)
     {
         result[i] = matrix[i][nth_column];
+        // printf("%d ", result[i]);
     }
+    // printf("\n");
     return result;
 }
 

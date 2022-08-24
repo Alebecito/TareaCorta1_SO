@@ -50,30 +50,6 @@ void *multiply_row_by_matrix_threading(void *arguments)
     free(arguments);
 }
 
-void multiply_row_by_matrix_normal(int *row, int row_size, int row_idx, int **matrixB, int **matrixC)
-{
-    // printf("HELLO FROM NORMAL\n");
-    // loop through each column of matrixB
-    int columns = row_size, column_size = row_size;
-    int *result = (int *)malloc(sizeof(int) * row_size);
-    for (int i = 0; i < row_size; i++)
-    {
-        result[i] = 0;
-    }
-
-    for (int i = 0; i < row_size; i++)
-    {
-        int *column = get_nth_column(matrixB, column_size, i);
-        // printf("\t\tCOLUMN #%d -------> ", i);
-        // print_array(column, column_size);
-        for (int j = 0; j < column_size; j++)
-        {
-            result[i] += row[j] * column[j];
-        }
-    }
-    // print_array(result, row_size);
-    matrixC[row_idx] = result;
-}
 
 // create_threads(&threads, matrix_size, A, B, C, matrix_size);
 void create_threads(pthread_t *threads, int threads_number, int **matrixA, int **matrixB, int **matrixC, int matrix_size)
@@ -154,7 +130,7 @@ int main()
         char filename[12];
         sprintf(filename, "Mat_%s%d.txt", i < 10 ? "0" : "", i);
 
-        write_matrix(filename, C, matrix_size);
+        // write_matrix(filename, C, matrix_size);
 
         double diff = (end.tv_sec - start.tv_sec);
         diff += (end.tv_nsec - start.tv_nsec) / 1000000000.0;
