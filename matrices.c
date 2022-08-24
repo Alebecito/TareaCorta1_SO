@@ -62,14 +62,11 @@ void print_array(int *array, int size)
 
 int *get_nth_column(int **matrix, int size, int nth_column)
 {
-    printf("nth column: ");
     int *result = (int *)malloc(sizeof(int) * size);
     for (int i = 0; i < size; i++)
     {
         result[i] = matrix[i][nth_column];
-        printf("%d ", result[i]);
     }
-    printf("\n");
     return result;
 }
 
@@ -89,24 +86,14 @@ void *multiply_row_by_matrix(int *row, int row_size, int row_idx, int **matrixB,
 
     for (int i = 0; i < row_size; i++)
     {
-        // int *column = get_nth_column(matrixB, column_size, i);
+        int *column = get_nth_column(matrixB, column_size, i);
         // printf("\t\tCOLUMN #%d -------> ", i);
         // print_array(column, column_size);
-        // printf("\tINSIDE COLUMN: ");
         for (int j = 0; j < column_size; j++)
         {
-            
-            // printf("%d ", matrixB[j][i]);
-
-            // if (j == i)
-            // {
-                // result[i] += row[j] * matrixB[i][i];
-                result[i] += row[j] * matrixB[j][i];
-            //     break;
-            // }
+            result[i] += row[j] * column[j];
         }
-        // printf("\n");
-        // free(column);
+        free(column);
     }
     // print_array(result, row_size);
     matrixC[row_idx] = result;
