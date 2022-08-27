@@ -26,6 +26,7 @@ void create_processes(int matrix_size, int (*result)[matrix_size], int **matrixA
     pid_t pid;
     for (int i = 0; i < matrix_size; i++)
     {
+        // printf("=========\n");
         pid = fork();
         p_ids[i] = pid;
 
@@ -42,6 +43,7 @@ void create_processes(int matrix_size, int (*result)[matrix_size], int **matrixA
         // }
         if (pid == 0) // fork returns 0 to the child process so it enters "if" block
         {
+            // printf("Initianting process for row %d\n", i);
             // close(p[0]);
             // printf("[son] pid %d from [parent] pid %d\n", getpid(), getppid());
             multiply_row_by_matrix(matrixA[i], matrix_size, i, matrixB, matrixC);
@@ -59,19 +61,26 @@ void create_processes(int matrix_size, int (*result)[matrix_size], int **matrixA
             free(matrixC[i]);
             exit(0);
         }
-        else
-        {
-            wait(&pid);
-        }
+        // else
+        // {
+        //     // printf("ELSE BLOCK\n");
+        //     wait(&pid);
+        // }
+        // printf("=========\n");
+
     }
-    // if (pid != 0)
-    // {
-    //     int cpid;
-    //     int status;
-    //     while ((cpid = wait(&status)) > 0)
-    //         printf("Parent (%d): child (%d) exited with status 0x%.4x\n", (int)getpid(), cpid, status);
-    //     ;
-    // }
+    if (pid != 0)
+    {
+        int cpid;
+        int status;
+        while ((cpid = wait(&status)) > 0)
+            //sleep(0.000001);
+            // printf("Parent (%d): child (%d) exited with status 0x%.4x\n", (int)getpid(), cpid, status);
+            // printf("");
+            ;
+        ;
+    }
+    // printf("*************** PROCESSES FINISHED ****************\n");
     // printf("============================\n");
     // fputs("JUPON\n", stats_file);
 

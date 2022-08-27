@@ -113,12 +113,13 @@ int main()
         //     multiply_row_by_matrix_normal(A[i], matrix_size, i, B, C);
         // }
 
-        clock_gettime(CLOCK_MONOTONIC, &end);
-
         for (int x = 0; x < matrix_size; x++)
         {
-           pthread_join(threads[x], NULL);
+            pthread_join(threads[x], NULL);
         }
+
+        clock_gettime(CLOCK_MONOTONIC, &end);
+
         // print the results
         // printf("Matrix A:\n");
         // print_matrix(A, matrix_size);
@@ -130,7 +131,7 @@ int main()
         char filename[12];
         sprintf(filename, "Mat_%s%d.txt", i < 10 ? "0" : "", i);
 
-        // write_matrix(filename, C, matrix_size);
+        write_matrix(filename, C, matrix_size);
 
         double diff = (end.tv_sec - start.tv_sec);
         diff += (end.tv_nsec - start.tv_nsec) / 1000000000.0;

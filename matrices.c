@@ -100,6 +100,9 @@ void *multiply_row_by_matrix(int *row, int row_size, int row_idx, int **matrixB,
     }
     // print_array(result, row_size);
     matrixC[row_idx] = result;
+    // printf("Finishing process for row %d\n", row_idx);
+
+    // printf("")
 }
 
 int **generate_random_matrix(int size)
