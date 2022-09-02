@@ -71,7 +71,7 @@ int main()
         // array to share
         int(*result)[matrix_size]; // pointer to array
 
-        buff = shmget(IPC_PRIVATE, sizeof(int[matrix_size][matrix_size]), IPC_CREAT);
+        buff = shmget(IPC_PRIVATE, sizeof(int[matrix_size][matrix_size]), IPC_CREAT | 0666);
         // result receives the memory segment from buff
         result = shmat(buff, 0, 0);
 
