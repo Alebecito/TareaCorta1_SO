@@ -50,13 +50,9 @@ void *multiply_row_by_matrix_threading(void *arguments)
     free(arguments);
 }
 
-
 // create_threads(&threads, matrix_size, A, B, C, matrix_size);
 void create_threads(pthread_t *threads, int threads_number, int **matrixA, int **matrixB, int **matrixC, int matrix_size)
 {
-    // pthread_attr_t a;
-    // pthread_attr_init(&a);
-    // pthread_attr_setdetachstate(&a, PTHREAD_CREATE_DETACHED);
 
     for (int i = 0; i < threads_number; i++)
     {
@@ -143,10 +139,7 @@ int main()
         printf("%s%f seconds\n", iteration, diff);
 
         write_stats(diff, iteration);
-        // fprintf(stats_file, "JUPON\n");
-        // fputs("JUPON\n", stats_file);
 
-        // printf("diff in %f: %d\n", i, diff);
         average += diff;
         for (int z = 0; z < matrix_size; z++)
         {

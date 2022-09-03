@@ -10,7 +10,6 @@
 #include <sys/shm.h>
 #include <time.h>
 
-
 void create_processes(int matrix_size, int (*result)[matrix_size], int **matrixA, int **matrixB, int **matrixC)
 {
     pid_t p_ids[matrix_size];
@@ -35,7 +34,7 @@ void create_processes(int matrix_size, int (*result)[matrix_size], int **matrixA
         int status;
         while ((cpid = wait(&status)) > 0)
             sleep(0.000001);
-            ;
+        ;
         ;
     }
 }
@@ -63,7 +62,6 @@ int main()
         int **A = generate_random_matrix(matrix_size),
             **B = generate_random_matrix(matrix_size),
             **C = generate_random_matrix(matrix_size);
-
 
         // ============= NEW CODE =============
         // memory segment (ID)
