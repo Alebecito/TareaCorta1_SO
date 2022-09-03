@@ -136,7 +136,7 @@ int main()
 
         char iteration[18];
         sprintf(iteration, "Iteration_%s%d: ", i < 10 ? "0" : "", i);
-        printf("%s%f seconds\n", iteration, diff);
+        // printf("%s%f seconds\n", iteration, diff);
 
         write_stats(diff, iteration);
 
