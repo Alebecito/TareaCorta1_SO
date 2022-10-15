@@ -101,3 +101,5 @@ int **generate_random_matrix(int size)
     }
     return matrix;
 }
+
+FILE *stats_file;

@@ -20,6 +20,6 @@ void write_stats(double time, char *message);
 
 void write_matrix_memseg(char *filename, int size, int (*matrix)[size]);
 
-FILE *stats_file;
+extern FILE *stats_file;
 
 #endif
